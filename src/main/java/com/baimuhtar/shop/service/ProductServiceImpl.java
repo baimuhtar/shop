@@ -24,17 +24,19 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Product save(Product product) {
-
-        return null;
+        log.info("IN ProductServiceImpl save {}", product);
+        return productRepository.save(product);
     }
 
     @Override
     public void delete(int id) {
-
+        log.info("IN ProductServiceImpl delete {}", id);
+        productRepository.deleteById(id);
     }
 
     @Override
     public List<Product> getAll() {
-        return null;
+        log.info("IN ProductServiceImpl getAll {}");
+        return productRepository.findAll();
     }
 }
