@@ -18,7 +18,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Optional<Product> getById(int id) {
-        log.info("IN ProductServiceImpl GetById {}", id);
+        log.info("IN ProductServiceImpl getById {}", id);
         return productRepository.findById(id);
     }
 
@@ -36,7 +36,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getAll() {
-        log.info("IN ProductServiceImpl getAll {}");
+        log.info("IN ProductServiceImpl getAll{}");
         return productRepository.findAll();
     }
 }
