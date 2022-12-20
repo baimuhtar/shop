@@ -20,13 +20,14 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
         builder.jdbcAuthentication().dataSource(dataSource);
     }
+
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/").hasAnyRole("SELLER","BUYER")
+                .antMatchers("/").hasAnyRole("SELLER", "BUYER")
                 .antMatchers(HttpMethod.GET, "/products").hasAnyRole("SELLER", "BUYER")
                 .antMatchers(HttpMethod.GET, "/products/{id}").hasAnyRole("SELLER", "BUYER")
                 .antMatchers(HttpMethod.POST, "/products").hasRole("SELLER")
